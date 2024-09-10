@@ -1,6 +1,8 @@
 Revision history for App-cpm
 
 {{$NEXT}}
+0.997017-build-meta 2024-09-10 12:49:20 CEST
+        - Build META files if not included in the distribution (resolves #230)
 
 0.997017  2024-04-29 06:15:24 JST
         - Add workaround for fork(2) on macOS again (#246, #248)
