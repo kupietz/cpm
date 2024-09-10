@@ -119,7 +119,7 @@ my $exclude = join ",", qw(
     URI
 );
 
-my $target = '5.8.1';
+my $target = '5.10.0';
 
 my ($git_describe, $git_url);
 if (my $version = $ENV{CPAN_RELEASE_VERSION}) {

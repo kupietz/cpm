@@ -264,6 +264,12 @@
       "url" : "https://metacpan.org/dist/Win32-ShellQuote"
    },
    {
+      "copyright" : "Dimitrios Kechagias",
+      "license" : "the same as Perl 5",
+      "name" : "System::CPU",
+      "url" : "https://metacpan.org/pod/System::CPU"
+   },
+   {
       "copyright" : "Matt S Trout, CONTRIBUTORS",
       "license" : "the same as Perl 5",
       "name" : "local-lib",

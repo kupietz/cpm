@@ -48,7 +48,8 @@ cpm - a fast CPAN module installer
 =head1 OPTIONS
 
   -w, --workers=N
-        number of workers, default: 5
+        number of workers, default: number of processing units available to the current process, as
+        reported by System::CPU::get_ncpu()
   -L, --local-lib-contained=DIR
         directory to install modules into, default: local/
   -g, --global

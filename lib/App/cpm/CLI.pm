@@ -1,5 +1,5 @@
 package App::cpm::CLI;
-use 5.008001;
+use 5.010;
 use strict;
 use warnings;
 
@@ -29,6 +29,7 @@ use Module::CPANfile;
 use Module::cpmfile;
 use Parallel::Pipes::App;
 use Pod::Text ();
+use System::CPU;
 use local::lib ();
 
 sub new {
@@ -38,7 +39,7 @@ sub new {
         argv => undef,
         home => determine_home,
         cwd => Cwd::cwd(),
-        workers => WIN32 ? 1 : 5,
+        workers => WIN32 ? 1 : System::CPU::get_ncpu(),
         snapshot => "cpanfile.snapshot",
         dependency_file => undef,
         local_lib => "local",

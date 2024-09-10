@@ -43,9 +43,10 @@
             "Parallel::Pipes::App" : "0.100",
             "Parse::PMFile" : "0.43",
             "Proc::ForkSafe" : "0.001",
+            "System::CPU" : "1.03",
             "local::lib" : "2.000018",
             "parent" : "0",
-            "perl" : "5.008001",
+            "perl" : "5.010",
             "version" : "0.77"
          }
       }

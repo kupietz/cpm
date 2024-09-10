@@ -139,6 +139,7 @@ Proc::ForkSafe 0.001 S/SK/SKAJI/Proc-ForkSafe-0.001.tar.gz
 Search::Dict 1.07 D/DA/DAGOLDEN/Search-Dict-1.07.tar.gz
 String::ShellQuote 1.04 R/RO/ROSCH/String-ShellQuote-1.04.tar.gz
 Sub::Exporter::Progressive 0.001013 F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
+System::CPU 1.03 D/DK/DKECHAG/System-CPU-1.03.tar.gz
 Test2 1.302199 E/EX/EXODIST/Test-Simple-1.302199.tar.gz
 Test2::API 1.302199 E/EX/EXODIST/Test-Simple-1.302199.tar.gz
 Test2::API::Breakage 1.302199 E/EX/EXODIST/Test-Simple-1.302199.tar.gz
