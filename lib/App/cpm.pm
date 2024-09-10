@@ -2,7 +2,7 @@ package App::cpm;
 use strict;
 use warnings;
 
-our $VERSION = '0.997017-build-meta';
+our $VERSION = '0.997018-korap';
 our ($GIT_DESCRIBE, $GIT_URL);
 
 1;

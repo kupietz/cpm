@@ -1,6 +1,10 @@
 Revision history for App-cpm
 
 {{$NEXT}}
+0.997018-korap 2024-09-10 17:08:40 CEST
+        - Let number of workers default to number of processing units
+        - Minimal Perl requirement is now 5.8.1 -> 5.10
+
 0.997017-build-meta 2024-09-10 12:49:20 CEST
         - Build META files if not included in the distribution (resolves #230)
 
