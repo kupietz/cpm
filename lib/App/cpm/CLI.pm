@@ -39,7 +39,7 @@ sub new {
         argv => undef,
         home => determine_home,
         cwd => Cwd::cwd(),
-        workers => WIN32 ? 1 : System::CPU::get_ncpu(),
+        workers => WIN32 ? 1 : (System::CPU::get_ncpu() =~ /\A\d+\z/ ? System::CPU::get_ncpu() : 1),
         snapshot => "cpanfile.snapshot",
         dependency_file => undef,
         local_lib => "local",
@@ -85,6 +85,7 @@ sub parse_options {
         "mirror=s" => \$mirror,
         "v|verbose" => \($self->{verbose}),
         "w|workers=i" => \($self->{workers}),
+        "worker-count" => sub { $self->cmd_workers(); exit(0) },
         "target-perl=s" => \my $target_perl,
         "test!" => sub { $self->{notest} = $_[1] ? 0 : 1 },
         "cpanfile=s" => sub { $self->{dependency_file} = { type => "cpanfile", path => $_[1] } },
@@ -210,6 +211,7 @@ sub run {
     my $cmd = shift @argv or die "Need subcommand, try `cpm --help`\n";
     $cmd = "help"    if $cmd =~ /^(-h|--help)$/;
     $cmd = "version" if $cmd =~ /^(-V|--version)$/;
+    $cmd = "workers" if $cmd =~ /^(--worker-count)$/;
     if (my $sub = $self->can("cmd_$cmd")) {
         return $self->$sub(@argv) if $cmd eq "exec";
         my $ok = $self->parse_options(@argv);
@@ -220,6 +222,12 @@ sub run {
         my $message = $cmd =~ /^-/ ? "Missing subcommand" : "Unknown subcommand '$cmd'";
         die "$message, try `cpm --help`\n";
     }
+}
+
+sub cmd_workers {
+    my $self = shift;
+    print $self->{workers}, "\n";
+    return 0;
 }
 
 sub cmd_help {

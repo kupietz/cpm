@@ -5,6 +5,7 @@ prereqs:
       Archive::Zip: { version: '1.68' }
       CPAN::Mirror::Tiny: { version: '0.20' }
       Capture::Tiny:
+      File::Which:
       Path::Tiny:
       Test::More: { version: '0.98' }
   runtime:

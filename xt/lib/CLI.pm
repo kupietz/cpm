@@ -8,7 +8,7 @@ use Exporter 'import';
 use File::Basename ();
 use File::Spec;
 use Cwd 'abs_path';
-our @EXPORT = qw(cpm_install with_same_local with_same_home);
+our @EXPORT = qw(cpm cpm_install with_same_local with_same_home);
 
 my $base = abs_path( File::Spec->catdir(File::Basename::dirname(__FILE__), "..", "..") );
 
@@ -43,6 +43,16 @@ sub with_same_home (&) {
     my $sub = shift;
     local $_HOME = tempdir DIR => $TEMPDIR;
     $sub->();
+}
+
+sub cpm {
+    my @argv = @_;
+    my ($out, $err, $exit) = capture {
+        local %ENV = %ENV;
+        delete $ENV{$_} for grep /^PERL_CPM_/, keys %ENV;
+        system $^X, "-I$base/lib", "$base/script/cpm", @argv;
+    };
+    Result->new(out => $out, err => $err, exit => $exit);
 }
 
 sub cpm_install {
